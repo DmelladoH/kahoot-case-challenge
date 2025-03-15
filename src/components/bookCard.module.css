@@ -1,0 +1,9 @@
+.container {
+  display: flex;
+  gap: 10px;
+}
+
+.infoContainer {
+  display: grid;
+  justify-items: start;
+}
