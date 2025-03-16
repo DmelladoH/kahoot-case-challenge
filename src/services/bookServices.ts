@@ -2,10 +2,7 @@ import { URL } from "../constants";
 import { BookDetail, BookResponse, BooksResponse, BookSummary } from "../types";
 
 export async function getBooks(page: number = 1): Promise<BookSummary[]> {
-  const res = await fetch(`${URL}?page=${page}`);
-
-  //TODO ERROR HANDLING
-  const data = await res.json();
+  const data = await fetchWithErrorHandling(`${URL}?page=${page}`);
   return formatBooksResponse(data.results);
 }
 
@@ -21,10 +18,7 @@ const formatBooksResponse = (responseResults: BooksResponse[]) => {
 };
 
 export async function getBookById(id: string): Promise<BookDetail> {
-  const res = await fetch(`${URL}/${id}`);
-
-  //TODO ERROR HANDLING
-  const data = await res.json();
+  const data = await fetchWithErrorHandling(`${URL}/${id}`);
   return formatBookResponse(data);
 }
 
@@ -36,3 +30,11 @@ const formatBookResponse = (response: BookResponse) => ({
   translators: response.translators,
   image: response.formats["image/jpeg"],
 });
+
+async function fetchWithErrorHandling(url: string) {
+  const res = await fetch(url);
+  if (!res.ok) {
+    throw new Error(`Error fetching data: ${res.status} ${res.statusText}`);
+  }
+  return res.json();
+}

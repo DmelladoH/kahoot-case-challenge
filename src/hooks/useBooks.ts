@@ -1,8 +1,8 @@
-import { useEffect, useState } from "react";
-import { BookSummary, OrderByOptions } from "../types";
+import { OrderByOptions } from "../types";
 import { getBooks } from "../services/bookServices";
 import { PageLimit } from "../constants";
 import { useLocation } from "wouter";
+import { useQuery } from "@tanstack/react-query";
 
 interface UseBooksProps {
   offset?: number;
@@ -17,38 +17,37 @@ export function useBooks({
   page = 1,
   orderBy,
 }: UseBooksProps) {
-  const [books, setBooks] = useState<BookSummary[]>([]);
-  const [isLoading, setIsLoading] = useState(false);
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [location, setLocation] = useLocation();
 
-  useEffect(() => {
-    const foo = async () => {
-      setIsLoading(true);
-      const books = await getBooks(page);
-      setBooks(books);
-      setIsLoading(false);
-    };
-    foo();
-  }, [page]);
+  const {
+    data: books,
+    isError,
+    isPending,
+  } = useQuery({
+    queryKey: ["books", { page }],
+    queryFn: () => getBooks(page),
+  });
 
-  const filteredBooks = [...books]
-    .sort((a, b) => {
-      if (orderBy === "titleAsc") {
-        return a.title.localeCompare(b.title);
-      }
-      if (orderBy === "titleDesc") {
-        return b.title.localeCompare(a.title);
-      }
-      if (orderBy === "authorAsc") {
-        return a.firstAuthor.localeCompare(b.firstAuthor);
-      }
-      if (orderBy === "authorDesc") {
-        return b.firstAuthor.localeCompare(a.firstAuthor);
-      }
-      return 0;
-    })
-    .slice(offset, offset + limit);
+  const filteredBooks = books
+    ? [...books]
+        .sort((a, b) => {
+          if (orderBy === "titleAsc") {
+            return a.title.localeCompare(b.title);
+          }
+          if (orderBy === "titleDesc") {
+            return b.title.localeCompare(a.title);
+          }
+          if (orderBy === "authorAsc") {
+            return a.firstAuthor.localeCompare(b.firstAuthor);
+          }
+          if (orderBy === "authorDesc") {
+            return b.firstAuthor.localeCompare(a.firstAuthor);
+          }
+          return 0;
+        })
+        .slice(offset, offset + limit)
+    : [];
 
   const next = () => {
     let newPage = page;
@@ -62,5 +61,5 @@ export function useBooks({
     setLocation(`/page/${newPage}/offset/${newOffset}`);
   };
 
-  return { books: filteredBooks, next, isLoading };
+  return { books: filteredBooks, isError, next, isPending };
 }

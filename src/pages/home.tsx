@@ -11,7 +11,7 @@ interface Props {
 export default function Home({ offset, page }: Props) {
   const [orderBy, setOrderBy] = useState<OrderByOptions>("titleAsc");
 
-  const { books, isLoading, next } = useBooks({
+  const { books, isPending, next } = useBooks({
     offset: Number.parseInt(offset || "0"),
     page: Number.parseInt(page || "1"),
     orderBy: orderBy,
@@ -52,7 +52,7 @@ export default function Home({ offset, page }: Props) {
           Author {getOrderIconTitle()}
         </button>
       </div>
-      {isLoading && <div>Loading...</div>}
+      {isPending && <div>Loading...</div>}
       <ul className="bookList">
         {books?.map((book) => (
           <li key={book.id}>
