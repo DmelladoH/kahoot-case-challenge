@@ -4,7 +4,7 @@ import { OrderBy } from "../types";
 import BookCard from "../components/bookCard/bookCard";
 import ListFooter from "../components/listFooter/listFooter";
 import ListOrderBy from "../components/listOrderBy/listOrderBy";
-
+import styles from "./home.module.css";
 interface Props {
   offset?: string;
   page?: string;
@@ -36,12 +36,12 @@ export default function Home({ offset, page }: Props) {
   };
 
   return (
-    <main>
+    <div className={styles.container}>
       <ListOrderBy orderBy={orderBy} toggleOrder={toggleOrder} />
       {isPending && <div>Loading...</div>}
-      <ul className="bookList">
+      <ul className="bookList gallery">
         {books?.map((book) => (
-          <li key={book.id}>
+          <li key={book.id} className="card">
             <BookCard book={book} />
           </li>
         ))}
@@ -51,6 +51,6 @@ export default function Home({ offset, page }: Props) {
         prev={goPrev}
         next={goNext}
       />
-    </main>
+    </div>
   );
 }

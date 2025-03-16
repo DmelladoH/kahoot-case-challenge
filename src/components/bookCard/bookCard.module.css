@@ -7,6 +7,21 @@
 }
 
 .infoContainer {
+}
+
+.title {
+  text-align: left;
+  margin: 0;
+  font-size: var(--e-global-typography-text-font-size);
+  font-weight: var(--e-global-typography-primary-font-weight);
+}
+
+.author {
+  color: var(--e-global-color-secondary);
+}
+
+.textContainer {
   display: grid;
+  align-items: flex-start;
   justify-items: start;
 }

@@ -53,15 +53,61 @@
   --e-global-typography-a33b260-line-height: 1.3em;
 }
 
-body {
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+* {
   margin: 0;
-  min-width: 320px;
-  min-height: 100vh;
+}
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+p {
+  text-wrap: pretty;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-wrap: balance;
 }
 
-main {
-  max-width: 900px;
-  margin: 0 auto;
+#root,
+#__next {
+  isolation: isolate;
+}
+
+body {
+  margin: 0;
+  font-size: var(--e-global-typography-text-font-size);
 }
 
 ul {
@@ -70,5 +116,6 @@ ul {
 }
 
 a {
+  color: var(--e-global-color-primary);
   text-decoration: none;
 }
