@@ -17,8 +17,7 @@ export function useBooks({
   page = 1,
   orderBy,
 }: UseBooksProps) {
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const [location, setLocation] = useLocation();
+  const [, setLocation] = useLocation();
 
   const {
     data: books,
