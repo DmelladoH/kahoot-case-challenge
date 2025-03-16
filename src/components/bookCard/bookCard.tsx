@@ -1,4 +1,4 @@
-import { BookSummary } from "../types";
+import { BookSummary } from "../../types";
 import styles from "./bookCard.module.css";
 
 export default function BookCard({ book }: { book: BookSummary }) {

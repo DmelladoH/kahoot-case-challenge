@@ -43,6 +43,13 @@ export interface Formats {
   "application/octet-stream": string;
 }
 
+export enum OrderBy {
+  TitleAsc = "titleAsc",
+  TitleDesc = "titleDesc",
+  AuthorAsc = "authorAsc",
+  AuthorDesc = "authorDesc",
+}
+
 export interface BookResponse {
   id: number;
   title: string;

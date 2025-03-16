@@ -1,7 +1,9 @@
 import { useState } from "react";
-import BookCard from "../components/bookCard";
 import { useBooks } from "../hooks/useBooks";
-import { OrderByOptions } from "../types";
+import { OrderBy } from "../types";
+import BookCard from "../components/bookCard/bookCard";
+import ListFooter from "../components/listFooter/listFooter";
+import ListOrderBy from "../components/listOrderBy/listOrderBy";
 
 interface Props {
   offset?: string;
@@ -9,9 +11,9 @@ interface Props {
 }
 
 export default function Home({ offset, page }: Props) {
-  const [orderBy, setOrderBy] = useState<OrderByOptions>("titleAsc");
+  const [orderBy, setOrderBy] = useState<OrderBy>(OrderBy.TitleAsc);
 
-  const { books, isPending, next } = useBooks({
+  const { books, isPending, goNext, goPrev } = useBooks({
     offset: Number.parseInt(offset || "0"),
     page: Number.parseInt(page || "1"),
     orderBy: orderBy,
@@ -19,39 +21,23 @@ export default function Home({ offset, page }: Props) {
 
   const toggleOrder = (type: "title" | "author") => {
     if (type === "title") {
-      setOrderBy((prev) => (prev === "titleAsc" ? "titleDesc" : "titleAsc"));
+      setOrderBy((prev) =>
+        prev === OrderBy.TitleAsc ? OrderBy.TitleDesc : OrderBy.TitleAsc
+      );
       return;
     }
 
     if (type === "author") {
-      setOrderBy((prev) => (prev === "authorAsc" ? "authorDesc" : "authorAsc"));
+      setOrderBy((prev) =>
+        prev === OrderBy.AuthorAsc ? OrderBy.AuthorDesc : OrderBy.AuthorAsc
+      );
       return;
     }
   };
 
-  const getOrderIcon = () => {
-    if (orderBy === "titleAsc") return "⬆️";
-    if (orderBy === "titleDesc") return "⬇️";
-    return "";
-  };
-
-  const getOrderIconTitle = () => {
-    if (orderBy === "authorAsc") return "⬆️";
-    if (orderBy === "authorDesc") return "⬇️";
-    return "";
-  };
-
   return (
     <main>
-      <div>
-        <span>short alphabetical By</span>
-        <button onClick={() => toggleOrder("title")}>
-          Title {getOrderIcon()}
-        </button>
-        <button onClick={() => toggleOrder("author")}>
-          Author {getOrderIconTitle()}
-        </button>
-      </div>
+      <ListOrderBy orderBy={orderBy} toggleOrder={toggleOrder} />
       {isPending && <div>Loading...</div>}
       <ul className="bookList">
         {books?.map((book) => (
@@ -60,11 +46,11 @@ export default function Home({ offset, page }: Props) {
           </li>
         ))}
       </ul>
-      <div>
-        <button>prev</button>
-        <div>{page}</div>
-        <a onClick={next}>Next</a>
-      </div>
+      <ListFooter
+        page={Number.parseInt(page || "1")}
+        prev={goPrev}
+        next={goNext}
+      />
     </main>
   );
 }

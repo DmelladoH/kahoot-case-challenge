@@ -9,6 +9,7 @@ export default function useBookDetails({ id }: { id: string }) {
   } = useQuery({
     queryKey: ["book", { id }],
     queryFn: () => getBookById(id),
+    staleTime: 1000 * 60 * 5,
   });
 
   return { book, isError, isPending };

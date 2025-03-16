@@ -27,6 +27,7 @@ export function useBooks({
   } = useQuery({
     queryKey: ["books", { page }],
     queryFn: () => getBooks(page),
+    staleTime: 1000 * 60 * 5,
   });
 
   const filteredBooks = books
@@ -49,7 +50,7 @@ export function useBooks({
         .slice(offset, offset + limit)
     : [];
 
-  const next = () => {
+  const goNext = () => {
     let newPage = page;
     let newOffset = offset;
     if (offset + limit >= 30) {
@@ -61,5 +62,17 @@ export function useBooks({
     setLocation(`/page/${newPage}/offset/${newOffset}`);
   };
 
-  return { books: filteredBooks, isError, next, isPending };
+  const goPrev = () => {
+    let newPage = page;
+    let newOffset = offset;
+    if (offset - limit < 0) {
+      newPage = page - 1;
+      newOffset = 30 - limit;
+    } else {
+      newOffset = offset - limit;
+    }
+    setLocation(`/page/${newPage}/offset/${newOffset}`);
+  };
+
+  return { books: filteredBooks, isError, goNext, goPrev, isPending };
 }
