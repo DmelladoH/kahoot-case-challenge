@@ -13,16 +13,16 @@ interface Props {
 const getOrderIcon = (order: OrderBy, target: "title" | "author") => {
   if (target === "title") {
     if (order === OrderBy.TitleAsc)
-      return <ArrowUp width="16px" height="auto" />;
+      return <ArrowUp width="16px" height="16px" />;
     if (order === OrderBy.TitleDesc)
-      return <ArrowDown width="16px" height="auto" />;
+      return <ArrowDown width="16px" height="16px" />;
   } else if (target === "author") {
     if (order === OrderBy.AuthorAsc)
-      return <ArrowUp width="16px" height="auto" />;
+      return <ArrowUp width="16px" height="16px" />;
     if (order === OrderBy.AuthorDesc)
-      return <ArrowDown width="16px" height="auto" />;
+      return <ArrowDown width="16px" height="16px" />;
   }
-  return <div style={{ width: "16px", height: "auto" }} />;
+  return <div style={{ width: "16px", height: "16px" }} />;
 };
 
 export default function ListOrderBy({ orderBy, toggleOrder }: Props) {
