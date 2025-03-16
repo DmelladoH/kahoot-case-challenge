@@ -28,7 +28,7 @@ const getOrderIcon = (order: OrderBy, target: "title" | "author") => {
 export default function ListOrderBy({ orderBy, toggleOrder }: Props) {
   return (
     <div className={styles.container}>
-      <span>Sort By: </span>
+      <span>Sort by: </span>
       <Button variant="secondary" onClick={() => toggleOrder("title")}>
         Title {getOrderIcon(orderBy, "title")}
       </Button>

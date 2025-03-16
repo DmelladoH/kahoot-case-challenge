@@ -49,6 +49,10 @@ export function useBooks({
         .slice(offset, offset + limit)
     : [];
 
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+  };
+
   const goNext = () => {
     let newPage = page;
     let newOffset = offset;
@@ -58,6 +62,7 @@ export function useBooks({
     } else {
       newOffset = offset + limit;
     }
+    scrollToTop();
     setLocation(`/page/${newPage}/offset/${newOffset}`);
   };
 
@@ -70,6 +75,7 @@ export function useBooks({
     } else {
       newOffset = offset - limit;
     }
+    scrollToTop();
     setLocation(`/page/${newPage}/offset/${newOffset}`);
   };
 
