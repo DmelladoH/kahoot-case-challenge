@@ -2,9 +2,16 @@ import "./App.css";
 import { Route, Switch } from "wouter";
 import Home from "./pages/home";
 import BookDetails from "./pages/bookDetails";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+
+const queryClient = new QueryClient();
 
 function App() {
-  return <Router />;
+  return (
+    <QueryClientProvider client={queryClient}>
+      <Router />
+    </QueryClientProvider>
+  );
 }
 
 export default App;
