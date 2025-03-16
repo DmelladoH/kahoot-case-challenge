@@ -2,18 +2,43 @@
   display: flex;
   gap: 10px;
   padding: 10px;
-  border: 1px solid gray;
+  border: 2px solid var(--e-global-color-c925353);
   border-radius: 10px;
+
+  box-shadow: -0 0 #0000, 0 0 #0000, -0 0 #0000, 0 0 #0000,
+    0 2px 4px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
 }
 
-.infoContainer {
+.skeletonInfoContainer {
+  display: grid;
+  gap: 10px;
+}
+
+.skeletonBookCover {
+  width: 94px;
+  height: 140px;
+}
+
+.skeletonTitle {
+  width: 300px;
+  height: 40px;
+}
+
+.skeletonAuthor {
+  width: 150px;
+  height: 20px;
 }
 
 .title {
   text-align: left;
   margin: 0;
-  font-size: var(--e-global-typography-text-font-size);
+  font-size: var(--e-global-typography-c89acd8-font-size);
   font-weight: var(--e-global-typography-primary-font-weight);
+  width: 300;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
 }
 
 .author {

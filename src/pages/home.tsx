@@ -5,6 +5,7 @@ import BookCard from "../components/bookCard/bookCard";
 import ListFooter from "../components/listFooter/listFooter";
 import ListOrderBy from "../components/listOrderBy/listOrderBy";
 import styles from "./home.module.css";
+import SkeletonCard from "../components/bookCard/skeletonCard";
 interface Props {
   offset?: string;
   page?: string;
@@ -38,7 +39,7 @@ export default function Home({ offset, page }: Props) {
   return (
     <div className={styles.container}>
       <ListOrderBy orderBy={orderBy} toggleOrder={toggleOrder} />
-      {isPending && <div>Loading...</div>}
+      {isPending && <LoadingGrid />}
       <ul className="bookList gallery">
         {books?.map((book) => (
           <li key={book.id} className="card">
@@ -51,6 +52,20 @@ export default function Home({ offset, page }: Props) {
         prev={goPrev}
         next={goNext}
       />
+    </div>
+  );
+}
+
+export function LoadingGrid() {
+  return (
+    <div className={styles.container}>
+      <ul className="bookList gallery">
+        {[...Array(10)].map((_, i) => (
+          <li key={i} className="card">
+            <SkeletonCard />
+          </li>
+        ))}
+      </ul>
     </div>
   );
 }

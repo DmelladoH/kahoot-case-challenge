@@ -18,11 +18,3 @@ export default function BookCard({ book }: { book: BookSummary }) {
     </article>
   );
 }
-
-{
-  /* <div>
-<Button asChild variant="primary">
-  See details <ArrowTopRightOnSquare width="16px" height="16px" />
-  </Button>
-  </div> */
-}
