@@ -43,8 +43,6 @@ export default function Home({ offset, page }: Props) {
 
   return (
     <main>
-      {offset}
-      {page}
       <div>
         <span>short alphabetical By</span>
         <button onClick={() => toggleOrder("title")}>

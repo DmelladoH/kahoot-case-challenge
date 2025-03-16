@@ -1,4 +1,4 @@
-export interface BookResponse {
+export interface BooksResponse {
   id: number;
   title: string;
   authors: Person[];
@@ -41,4 +41,28 @@ export interface Formats {
   "application/rdf+xml": string;
   "image/jpeg": string;
   "application/octet-stream": string;
+}
+
+export interface BookResponse {
+  id: number;
+  title: string;
+  authors: Person[];
+  summaries: string[];
+  translators: Person[];
+  subjects: string[];
+  bookshelves: string[];
+  languages: string[];
+  copyright: boolean;
+  media_type: string;
+  formats: Formats;
+  download_count: number;
+}
+
+export interface BookDetail {
+  id: number;
+  title: string;
+  authors: Person[];
+  summaries: string[];
+  translators: Person[];
+  image: string;
 }
