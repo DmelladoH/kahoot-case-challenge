@@ -29,24 +29,34 @@
   height: 20px;
 }
 
-.title {
-  text-align: left;
-  margin: 0;
-  font-size: var(--e-global-typography-c89acd8-font-size);
-  font-weight: var(--e-global-typography-primary-font-weight);
-  width: 300;
+.wrapText {
+  width: 100%;
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
   overflow: hidden;
 }
 
+.title {
+  text-align: left;
+  margin: 0;
+  font-size: var(--e-global-typography-c89acd8-font-size);
+  font-weight: var(--e-global-typography-primary-font-weight);
+}
+
 .author {
   color: var(--e-global-color-secondary);
+  text-align: left;
 }
 
 .textContainer {
   display: grid;
   align-items: flex-start;
   justify-items: start;
+}
+
+@media screen and (max-width: 768px) {
+  .title {
+    font-size: var(--e-global-typography-text-font-size);
+  }
 }
