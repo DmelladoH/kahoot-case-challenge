@@ -17,8 +17,6 @@
 }
 
 .button:focus {
-  box-shadow: 0 3px 9px rgba(60, 66, 87, 8), 0 2px 5px rgba(60, 66, 87, 0.8),
-    0 1px 1px rgba(0, 0, 0, 0.12);
 }
 
 .button:hover {
