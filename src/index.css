@@ -7,14 +7,61 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  --e-global-color-primary: #000000;
+  --e-global-color-secondary: #39494f;
+  --e-global-color-text: #4680fd;
+  --e-global-color-accent: #f95f7e;
+  --e-global-color-be43c3a: #13c9aa;
+  --e-global-color-3976dad: #ffb64d;
+  --e-global-color-c925353: #c4cdd5;
+  --e-global-color-f132154: #dfe4e8;
+  --e-global-color-3caba60: #ffffff;
+  --e-global-color-9bc28b9: #2d3c42;
+  --e-global-color-aaeb331: #4d197d;
+  --e-global-color-8fc0c90: #f6f8f9;
+
+  --e-global-typography-primary-font-family: "Roboto";
+  --e-global-typography-primary-font-weight: 600;
+  --e-global-typography-secondary-font-family: "Roboto Slab";
+  --e-global-typography-secondary-font-weight: 400;
+  --e-global-typography-text-font-family: "Montserrat";
+  --e-global-typography-text-font-size: 16px;
+  --e-global-typography-text-font-weight: 400;
+  --e-global-typography-text-line-height: 1.6em;
+  --e-global-typography-text-letter-spacing: -0.1px;
+  --e-global-typography-accent-font-family: "Roboto";
+  --e-global-typography-accent-font-weight: 500;
+  --e-global-typography-a195f4d-font-family: "Montserrat";
+  --e-global-typography-a195f4d-font-size: 40px;
+  --e-global-typography-a195f4d-font-weight: bold;
+  --e-global-typography-a195f4d-line-height: 1.1em;
+  --e-global-typography-a195f4d-letter-spacing: -0.2px;
+  --e-global-typography-c89acd8-font-family: "Montserrat";
+  --e-global-typography-c89acd8-font-size: 24px;
+  --e-global-typography-c89acd8-font-weight: bold;
+  --e-global-typography-c89acd8-line-height: 1.3em;
+  --e-global-typography-ef194dd-font-family: "Montserrat";
+  --e-global-typography-ef194dd-font-size: 16px;
+  --e-global-typography-ef194dd-font-weight: 600;
+  --e-global-typography-ef194dd-text-transform: uppercase;
+  --e-global-typography-ef194dd-line-height: 1.6em;
+  --e-global-typography-ef194dd-letter-spacing: -0.1px;
+  --e-global-typography-a33b260-font-family: "Roboto";
+  --e-global-typography-a33b260-font-size: 16px;
+  --e-global-typography-a33b260-font-weight: 400;
+  --e-global-typography-a33b260-line-height: 1.3em;
 }
 
 body {
   margin: 0;
-  display: flex;
-  place-items: center;
   min-width: 320px;
   min-height: 100vh;
+}
+
+main {
+  max-width: 900px;
+  margin: 0 auto;
 }
 
 ul {

@@ -3,13 +3,16 @@ import { Route, Switch } from "wouter";
 import Home from "./pages/home";
 import BookDetails from "./pages/bookDetails";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import Layout from "./layouts/layout";
 
 const queryClient = new QueryClient();
 
 function App() {
   return (
     <QueryClientProvider client={queryClient}>
-      <Router />
+      <Layout>
+        <Router />
+      </Layout>
     </QueryClientProvider>
   );
 }
