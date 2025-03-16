@@ -25,9 +25,12 @@ export async function getBookById(id: string): Promise<BookDetail> {
 const formatBookResponse = (response: BookResponse) => ({
   id: response.id,
   title: response.title,
-  authors: response.authors,
+  authors: response.authors.map((elem) => ({
+    name: elem.name,
+    birthYear: elem.birth_year,
+    deathYear: elem.death_year,
+  })),
   summaries: response.summaries,
-  translators: response.translators,
   image: response.formats["image/jpeg"],
 });
 

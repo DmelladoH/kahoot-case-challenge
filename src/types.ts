@@ -1,9 +1,9 @@
 export interface BooksResponse {
   id: number;
   title: string;
-  authors: Person[];
+  authors: PersonResponse[];
   summaries: string[];
-  translators: Person[];
+  translators: PersonResponse[];
   subjects: string[];
   bookshelves: string[];
   languages: string[];
@@ -27,10 +27,16 @@ export interface BookSummary {
   firstAuthor: string;
 }
 
-export interface Person {
+interface PersonResponse {
   name: string;
   birth_year: number | null;
   death_year: number | null;
+}
+
+export interface Person {
+  name: string;
+  birthYear: number | null;
+  deathYear: number | null;
 }
 
 export interface Formats {
@@ -53,9 +59,9 @@ export enum OrderBy {
 export interface BookResponse {
   id: number;
   title: string;
-  authors: Person[];
+  authors: PersonResponse[];
   summaries: string[];
-  translators: Person[];
+  translators: PersonResponse[];
   subjects: string[];
   bookshelves: string[];
   languages: string[];
@@ -70,6 +76,5 @@ export interface BookDetail {
   title: string;
   authors: Person[];
   summaries: string[];
-  translators: Person[];
   image: string;
 }
