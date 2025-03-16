@@ -1,32 +1,24 @@
-import { useEffect, useState } from "react";
 import "./App.css";
-import { getBooks } from "./services/bookServices";
-import { BookSummary } from "./types";
-import BookCard from "./components/bookCard";
+import { Route, Switch } from "wouter";
+import Home from "./pages/home";
+import BookDetails from "./pages/bookDetails";
 
 function App() {
-  const [books, setBooks] = useState<BookSummary[]>([]);
-
-  useEffect(() => {
-    const foo = async () => {
-      const books = await getBooks();
-      console.log({ books });
-      setBooks(books);
-    };
-    foo();
-  }, []);
-
-  return (
-    <main>
-      <ul className="bookList">
-        {books?.map((book) => (
-          <li key={book.id}>
-            <BookCard book={book} />
-          </li>
-        ))}
-      </ul>
-    </main>
-  );
+  return <Router />;
 }
 
 export default App;
+
+function Router() {
+  return (
+    <Switch>
+      <Route path="/">
+        <Home />
+      </Route>
+      <Route path="/page/:page?/offset/:offset?">
+        {(params) => <Home offset={params.offset} page={params.page} />}
+      </Route>
+      <Route path="/:id">{(params) => <BookDetails id={params.id} />}</Route>
+    </Switch>
+  );
+}

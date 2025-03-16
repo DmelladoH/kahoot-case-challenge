@@ -12,6 +12,11 @@ export interface BookResponse {
   formats: Formats;
   download_count: number;
 }
+export type OrderByOptions =
+  | "titleAsc"
+  | "titleDesc"
+  | "authorAsc"
+  | "authorDesc";
 
 export interface BookSummary {
   id: number;
@@ -19,7 +24,7 @@ export interface BookSummary {
   subjects: string[];
   languages: string[];
   image: string;
-  authors: string[];
+  firstAuthor: string;
 }
 
 export interface Person {

@@ -16,6 +16,6 @@ const formatBooksResponse = (responseResults: BookResponse[]) => {
     subjects: elem.subjects,
     languages: elem.languages,
     image: elem.formats["image/jpeg"],
-    authors: elem.authors.map((author) => author.name),
+    firstAuthor: elem.authors[0]?.name || "anonymous",
   }));
 };

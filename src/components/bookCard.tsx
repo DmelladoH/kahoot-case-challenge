@@ -7,8 +7,9 @@ export default function BookCard({ book }: { book: BookSummary }) {
       <img src={book.image} alt={book.title} width="94px" height="auto" />
       <div className={styles.infoContainer}>
         <span>{book.title}</span>
-        <span>{book.authors[0]}</span>
+        <span>{book.firstAuthor}</span>
         <span>{book.subjects[0]}</span>
+        <a href={`/${book.id}`}>See details</a>
       </div>
     </article>
   );
