@@ -1,5 +1,6 @@
 import { URL } from "../constants";
-import { BookDetail, BookResponse, BooksResponse, BookSummary } from "../types";
+import { BookDetail, BookSummary } from "../types";
+import { BookResponse, BooksResponse } from "./responseTypes";
 
 export async function getBooks(page: number = 1): Promise<BookSummary[]> {
   const data = await fetchWithErrorHandling(`${URL}?page=${page}`);
