@@ -1,12 +1,13 @@
-import { OrderByOptions } from "../types";
 import { getBooks } from "../services/bookServices";
 import { PageLimit } from "../constants";
 import { useQuery } from "@tanstack/react-query";
+import { OrderBy } from "../types";
+import { sortBooks } from "../helpers/utils";
 
 interface UseBooksProps {
   limit?: number;
   page?: number;
-  orderBy: OrderByOptions;
+  orderBy: OrderBy;
 }
 
 export function useBooks({
@@ -25,23 +26,7 @@ export function useBooks({
     staleTime: 1000 * 60 * 5,
   });
 
-  const filteredBooks = books
-    ? [...books].slice(0, limit).sort((a, b) => {
-        if (orderBy === "titleAsc") {
-          return a.title.localeCompare(b.title);
-        }
-        if (orderBy === "titleDesc") {
-          return b.title.localeCompare(a.title);
-        }
-        if (orderBy === "authorAsc") {
-          return a.firstAuthor.localeCompare(b.firstAuthor);
-        }
-        if (orderBy === "authorDesc") {
-          return b.firstAuthor.localeCompare(a.firstAuthor);
-        }
-        return 0;
-      })
-    : [];
+  const processedBooks = books ? sortBooks(books, orderBy).slice(0, limit) : [];
 
-  return { books: filteredBooks, isError, error, isPending };
+  return { books: processedBooks, isError, error, isPending };
 }

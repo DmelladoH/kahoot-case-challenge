@@ -1,6 +1,6 @@
 import { Route, Switch } from "wouter";
-import Home from "./pages/home";
-import BookDetails from "./pages/bookDetails";
+import Home from "./pages/home/home";
+import BookDetails from "./pages/bookDetails/bookDetails";
 
 export default function Router() {
   return (

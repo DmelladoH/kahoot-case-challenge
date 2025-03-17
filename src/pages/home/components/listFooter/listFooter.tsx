@@ -1,5 +1,5 @@
 import { Link } from "wouter";
-import { Button } from "../ui/button";
+import { Button } from "../../../../components/ui/button";
 import styles from "./listFooter.module.css";
 
 interface Props {

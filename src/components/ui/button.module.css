@@ -16,9 +16,6 @@
   padding: 4px 8px;
 }
 
-.button:focus {
-}
-
 .button:hover {
   outline: solid 2px rgba(1, 150, 237, 0.36);
 }

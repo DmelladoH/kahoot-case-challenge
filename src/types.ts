@@ -1,9 +1,3 @@
-export type OrderByOptions =
-  | "titleAsc"
-  | "titleDesc"
-  | "authorAsc"
-  | "authorDesc";
-
 export interface BookSummary {
   id: number;
   title: string;
@@ -26,6 +20,10 @@ export enum OrderBy {
   AuthorDesc = "authorDesc",
 }
 
+export enum BookListAttributes {
+  Title = "title",
+  Author = "author",
+}
 export interface BookDetail {
   id: number;
   title: string;
