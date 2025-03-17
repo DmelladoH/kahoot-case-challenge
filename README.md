@@ -9,6 +9,8 @@
 
 # Case Challenge - Book recommendations app
 
+Visit: https://kahoot-case-challenge.vercel.app/
+
 ## 🚀 Getting Started
 
 ### 1️⃣ Clone the Repo
