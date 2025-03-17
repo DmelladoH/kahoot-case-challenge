@@ -2,6 +2,7 @@
   display: flex;
   gap: 25px;
   text-align: left;
+  justify-content: center;
 }
 
 @media screen and (max-width: 768px) {
@@ -16,9 +17,17 @@
   display: grid;
   flex: 1;
   gap: 20px;
+  max-width: 800px;
 }
 
-.img {
+.titleContainer {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.cover {
+  margin-top: 10px;
   width: 200px;
 }
 

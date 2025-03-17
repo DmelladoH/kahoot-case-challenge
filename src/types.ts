@@ -76,5 +76,6 @@ export interface BookDetail {
   title: string;
   authors: Person[];
   summaries: string[];
+  subjects: string[];
   image: string;
 }

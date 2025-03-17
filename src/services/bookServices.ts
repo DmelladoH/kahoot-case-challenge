@@ -30,6 +30,7 @@ const formatBookResponse = (response: BookResponse) => ({
     birthYear: elem.birth_year,
     deathYear: elem.death_year,
   })),
+  subjects: response.subjects,
   summaries: response.summaries,
   image: response.formats["image/jpeg"],
 });
