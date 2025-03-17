@@ -1,8 +1,35 @@
-## Requirements
-● x App should be listing only 10 items initially
-● x The list should be sorted by any available attribute Alphabetically
-● Details view should contain at least 3 pieces of information not available in the list data.
-● Details view should contain an image
-● xUse types-script regardless of the framework chosen.
-● UI should look appealing and be responsive, but do not use a css-framework.
-(Preprocessing is ok)
+<p align="center">
+    <img
+          width="auto"
+          height="80px"
+          src="./public/logo-header.webp"
+          alt="actimo a Kahoot! company"
+        />
+</p>
+
+# Case Challenge - Book recommendations app
+
+## 🚀 Getting Started
+
+### 1️⃣ Clone the Repo
+
+```sh
+ git clone https://github.com/DmelladoH/kahoot-case-challenge.git
+ cd case-challenge
+```
+
+### 2️⃣ Install Dependencies
+
+```sh
+ npm install
+```
+
+### 3️⃣ Run the App
+
+```sh
+ npm run dev
+```
+
+Then open **http://localhost:5173/** in your browser!
+
+---
