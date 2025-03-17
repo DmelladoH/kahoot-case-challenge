@@ -25,8 +25,8 @@ function Router() {
       <Route path="/">
         <Home />
       </Route>
-      <Route path="/page/:page?/offset/:offset?">
-        {(params) => <Home offset={params.offset} page={params.page} />}
+      <Route path="/page/:page">
+        {(params) => <Home page={params.page} />}
       </Route>
       <Route path="/:id">{(params) => <BookDetails id={params.id} />}</Route>
     </Switch>

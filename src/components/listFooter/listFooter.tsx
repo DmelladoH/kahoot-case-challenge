@@ -1,21 +1,27 @@
+import { Link } from "wouter";
 import { Button } from "../ui/button";
 import styles from "./listFooter.module.css";
 
 interface Props {
   page: number;
-  next: () => void;
-  prev: () => void;
 }
 
-export default function ListFooter({ page, next, prev }: Props) {
+export default function ListFooter({ page }: Props) {
+  const prevPage = page - 1;
+  const nextPage = page + 1;
+
   return (
     <div className={styles.container}>
-      <Button asChild variant="secondary">
-        <a onClick={prev}>Prev</a>
-      </Button>
+      {prevPage > 0 ? (
+        <Button asChild variant="secondary">
+          <Link to={`/page/${prevPage}`}>Prev</Link>
+        </Button>
+      ) : (
+        <div className={styles.emptyDiv} />
+      )}
       <div>{page}</div>
       <Button asChild variant="secondary">
-        <a onClick={next}>Next</a>
+        <Link to={`/page/${nextPage}`}>Next</Link>
       </Button>
     </div>
   );

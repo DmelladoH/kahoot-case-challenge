@@ -1,6 +1,6 @@
 .container {
   display: flex;
-  gap: 10px;
+  gap: 20px;
   padding: 10px;
   border: 2px solid var(--e-global-color-c925353);
   border-radius: 10px;
@@ -20,7 +20,7 @@
 }
 
 .skeletonTitle {
-  width: 300px;
+  width: 250px;
   height: 40px;
 }
 
@@ -39,6 +39,7 @@
 
 .title {
   text-align: left;
+  line-height: 100%;
   margin: 0;
   font-size: var(--e-global-typography-c89acd8-font-size);
   font-weight: var(--e-global-typography-primary-font-weight);
