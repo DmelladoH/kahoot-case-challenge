@@ -20,3 +20,11 @@
 .card {
   grid-column: span 1;
 }
+
+.scale {
+  transition: transform 0.2s ease-in-out;
+}
+
+.scale:hover {
+  transform: scale(1.05);
+}

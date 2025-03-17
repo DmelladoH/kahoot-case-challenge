@@ -14,7 +14,7 @@ export default function Header() {
         />
       </a>
 
-      <a href={repoURL} className={styles.link}>
+      <a href={repoURL} className={`${styles.link} scale`}>
         <GitHub width="24px" height="24px" />
       </a>
     </header>
